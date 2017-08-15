@@ -34,31 +34,15 @@ var computerGuess = choices[Math.floor(Math.random() * choices.length)];
         console.log(event);
       	//Determins which key was pressed.
       	var userGuess = event.key;
-        
-        //Only run the following code block if the user presses var computerGuess
-       if (userGuess === computerGuess) {
+        };
+ 
+//Run the following code block after a key is pressed to determine if they selected the right one and what to if they did/didn't//
+      if (userGuess === computerGuess) {
 
-       	//Add +1 to the "Wins:" line.
-       console.log (computerGuess)
-       //NEED CODE HERE... document.write? how would I get it to write in a specific place (use document.getElementByID, also 
-       //have to append to the page) + add onto an already exisiting number... need to define the starting point somewhere, 
-       //which would be 0 and have some type of sum function?
+      var targetDiv = "wins-div" + (i+1);
 
-       } 
-
-       else {
-       	console.log ("Did not match computer guess");
-       	//NEED CODE HERE.... document.write? I need to 1. Record the guess on the "Your Guesses so far" line 2. Needs to
-       	//count what guess number the user is on. 3. If all 10 guesses have been used I have to record a loss in a specific
-       	//place + add onto an already exisiting number.... need to define the starting point somewhere, which would be 0 and
-       	//have some type of sum function?
-       
-
-       	
-
-
-       
+       };
 
 
 
-       //notes -// 65 -> 90 == keyCode could be used to clear up var choices
+
