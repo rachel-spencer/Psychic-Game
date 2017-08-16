@@ -32,17 +32,49 @@ var computerGuess = choices[Math.floor(Math.random() * choices.length)];
 // This function is run whenever the user presses a key.
       document.onkeyup = function(event) {
         console.log(event);
-      	//Determins which key was pressed.
+      	
+        //Determins which key was pressed.
       	var userGuess = event.key;
-        };
- 
-//Run the following code block after a key is pressed to determine if they selected the right one and what to if they did/didn't//
-      if (userGuess === computerGuess) {
+        
+        //check if the what was pressed = what what guessed.
+        if (userGuess === computerGuess){
+        
+        var targetDiv= document.getElementById("wins-p"), count = 0;
+          count += 1;  
+          targetDiv.innerHTML = (count); 
 
-      var targetDiv = "wins-div" + (i+1);
+        var targetDiv= document.getElementById("guessessofar-p"); 
+          targetDiv.innerHTML = (event.key);
 
-       };
+        alert ("You are a smart, strong, sensual woman. - Tina ");
 
+        }
+        
+        else {
+
+          var targetDiv= document.getElementById("losses-p"), count = 0;
+            count += 1;  
+            targetDiv.innerHTML = (count); 
+
+          var targetDiv= document.getElementById("guessessofar-p"); 
+            targetDiv.innerHTML = (event.key);
+
+            alert ("You didn't get it this time but don't have a crap attack, it's just a game. Try again!");
+          
+
+          var targetDiv= document.getElementById("guessesleft-p"), count = 10;
+            count -= 1;  
+            targetDiv.innerHTML = (count);
+
+        }
+      }
+      
+
+
+//how to reset after a win 
+//how to reset after 10 tries 
+//how to count the number of guesses left someone has
+//how to show all of the guesses not just the most recent guess
 
 
 
