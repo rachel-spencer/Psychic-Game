@@ -28,6 +28,13 @@ var choices = ["q","w","e","r","t","y","u","i","o","p","a","s","d","e","f","g","
 //Computer randomly chooses a choice from the options array. This is the letter the user is trying to guess
 var computerGuess = choices[Math.floor(Math.random() * choices.length)];
         console.log(computerGuess)
+var alreadyGuessed = "";
+
+var winCount = 0;
+
+var lossCount = 0;
+
+var guessesLeftCount = 10;
 
 // This function is run whenever the user presses a key.
       document.onkeyup = function(event) {
@@ -35,13 +42,14 @@ var computerGuess = choices[Math.floor(Math.random() * choices.length)];
       	
         //Determins which key was pressed.
       	var userGuess = event.key;
+        alreadyGuessed = alreadyGuessed + event.key + ", "
         
         //check if the what was pressed = what what guessed.
         if (userGuess === computerGuess){
         
-        var targetDiv= document.getElementById("wins-p"), count = 0;
-          count += 1;  
-          targetDiv.innerHTML = (count); 
+        var targetDiv= document.getElementById("wins-p")
+          winCount += 1;  
+          targetDiv.innerHTML = (winCount); 
 
         var targetDiv= document.getElementById("guessessofar-p"); 
           targetDiv.innerHTML = (event.key);
@@ -52,19 +60,20 @@ var computerGuess = choices[Math.floor(Math.random() * choices.length)];
         
         else {
 
-          var targetDiv= document.getElementById("losses-p"), count = 0;
-            count += 1;  
-            targetDiv.innerHTML = (count); 
+          var targetDiv= document.getElementById("losses-p")
+            lossCount += 1;  
+            targetDiv.innerHTML = (lossCount); 
 
-          var targetDiv= document.getElementById("guessessofar-p"); 
-            targetDiv.innerHTML = (event.key);
+          var targetDiv= document.getElementById("guessessofar-p");
+
+            targetDiv.innerHTML = (alreadyGuessed);
 
             alert ("You didn't get it this time but don't have a crap attack, it's just a game. Try again!");
           
 
-          var targetDiv= document.getElementById("guessesleft-p"), count = 10;
-            count -= 1;  
-            targetDiv.innerHTML = (count);
+          var targetDiv= document.getElementById("guessesleft-p")
+            guessesLeftCount -= 1;  
+            targetDiv.innerHTML = (guessesLeftCount);
 
         }
       }
@@ -73,8 +82,8 @@ var computerGuess = choices[Math.floor(Math.random() * choices.length)];
 
 //how to reset after a win 
 //how to reset after 10 tries 
-//how to count the number of guesses left someone has
-//how to show all of the guesses not just the most recent guess
+
+//my losses is going up with each wrong guess not the wrong 
 
 
 
