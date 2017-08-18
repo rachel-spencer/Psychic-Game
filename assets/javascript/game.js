@@ -22,51 +22,61 @@
 
 // ==============================================================================
 
-//Creates an array that lists out all of the options of the letters.
-var choices = ["q","w","e","r","t","y","u","i","o","p","a","s","d","e","f","g","h","j","k","l","z","x","c","v","b","n","m"]
+//Object and property declarations
 
-//Computer randomly chooses a choice from the options array. This is the letter the user is trying to guess
-var computerGuess = choices[Math.floor(Math.random() * choices.length)];
-        console.log(computerGuess)
-var alreadyGuessed = "";
+var user = {};
 
-var winCount = 0;
+user.choices = ["q","w","e","r","t","y","u","i","o","p","a","s","d","e","f","g","h","j","k","l","z","x","c","v","b","n","m"];
+user.alreadyGuessed = "";
+user.guess = "";
 
-var lossCount = 0;
 
-var guessesLeftCount = 10;
+var computer = {};
 
-// This function is run whenever the user presses a key.
+computer.choices = ["q","w","e","r","t","y","u","i","o","p","a","s","d","e","f","g","h","j","k","l","z","x","c","v","b","n","m"];
+computer.guess = computer.choices[Math.floor(Math.random() * computer.choices.length)];
+console.log(computer.guess);
+
+
+var scoreboard = {};
+
+winCount = 0;
+lossCount = 0;
+guessesLeftCount =10;
+
+
+
+//Functions that pull from the objects/properties
+
       document.onkeyup = function(event) {
         console.log(event);
-      	
-        //Determins which key was pressed.
-      	var userGuess = event.key;
-        alreadyGuessed = alreadyGuessed + event.key + ", "
         
-        //check if the what was pressed = what what guessed.
-        if (userGuess === computerGuess){
+        var userGuess = event.key;
+        user.alreadyGuessed = user.alreadyGuessed + event.key + ", "
+
+        if (userGuess === computer.guess){
         
-        var targetDiv= document.getElementById("wins-p")
-          winCount += 1;  
-          targetDiv.innerHTML = (winCount); 
+          var targetDiv= document.getElementById("wins-p")
+            winCount += 1;  
+            targetDiv.innerHTML = (winCount); 
 
-        var targetDiv= document.getElementById("guessessofar-p"); 
-          targetDiv.innerHTML = (event.key);
+          var targetDiv= document.getElementById("guessessofar-p"); 
+            targetDiv.innerHTML = (event.key);
 
-        alert ("You are a smart, strong, sensual woman. - Tina ");
+            alert ("You are a smart, strong, sensual woman. - Tina ");
+          }
 
-        }
-        
-        else {
-
+        else if (guessesLeftCount <= 0){
+          alert ("Your ass is grass and I'm gonna mow it! -Tina"); 
           var targetDiv= document.getElementById("losses-p")
             lossCount += 1;  
             targetDiv.innerHTML = (lossCount); 
+        }  
+
+        else {
 
           var targetDiv= document.getElementById("guessessofar-p");
-
-            targetDiv.innerHTML = (alreadyGuessed);
+            targetDiv.innerHTML = (user.alreadyGuessed);
 
             alert ("You didn't get it this time but don't have a crap attack, it's just a game. Try again!");
           
@@ -74,16 +84,15 @@ var guessesLeftCount = 10;
           var targetDiv= document.getElementById("guessesleft-p")
             guessesLeftCount -= 1;  
             targetDiv.innerHTML = (guessesLeftCount);
-
-        }
+          }
       }
-      
+
+
+
 
 
 //how to reset after a win 
 //how to reset after 10 tries 
-
-//my losses is going up with each wrong guess not the wrong 
 
 
 
