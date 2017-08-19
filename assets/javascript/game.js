@@ -70,8 +70,15 @@ guessesLeftCount =10;
           alert ("Your ass is grass and I'm gonna mow it! -Tina"); 
           var targetDiv= document.getElementById("losses-p")
             lossCount += 1;  
-            targetDiv.innerHTML = (lossCount); 
-        }  
+            targetDiv.innerHTML = (lossCount);
+          computer.guess = computer.choices[Math.floor(Math.random() * computer.choices.length)];
+          console.log(computer.guess);
+          lossCount >= 1
+            var targetDiv= document.getElementById("guessessofar-p");
+            targetDiv.innerHTML = ("");
+            guessesLeftCount = 10;
+        }
+      
 
         else {
 
@@ -86,13 +93,6 @@ guessesLeftCount =10;
             targetDiv.innerHTML = (guessesLeftCount);
           }
       }
-
-
-
-
-
-//how to reset after a win 
-//how to reset after 10 tries 
 
 
 
