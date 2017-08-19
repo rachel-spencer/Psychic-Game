@@ -64,6 +64,8 @@ guessesLeftCount =10;
             targetDiv.innerHTML = (event.key);
 
             alert ("You are a smart, strong, sensual woman. - Tina ");
+          computer.guess = computer.choices[Math.floor(Math.random() * computer.choices.length)];
+          console.log(computer.guess);
           }
 
         else if (guessesLeftCount <= 0){
@@ -74,7 +76,7 @@ guessesLeftCount =10;
           computer.guess = computer.choices[Math.floor(Math.random() * computer.choices.length)];
           console.log(computer.guess);
           lossCount >= 1
-            var targetDiv= document.getElementById("guessessofar-p");
+          var targetDiv= document.getElementById("guessessofar-p");
             targetDiv.innerHTML = ("");
             guessesLeftCount = 10;
         }
